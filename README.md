@@ -4,8 +4,9 @@
 
 Two options are available to configure ou Strategy:
 - Use dot env file
-- provide configuration into Strategy instantiation.
+- Providing configuration into Strategy instantiation.
 
+> For this example, we'll use [`dotenv` library](https://www.npmjs.com/package/dotenv) to handle local environment
 
 
 🛠️ First one is through env file. This one is transparent because you do not have to add code, simply keeping the previous step code, the Strategy will consume environment by defaut.
