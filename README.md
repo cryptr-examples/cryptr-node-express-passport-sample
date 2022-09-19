@@ -2,14 +2,15 @@
 
 ## 02 - Adding Cryptr Configuration
 
-Two options are available to configure ou Strategy:
-- Use dot env file
-- Providing configuration into Strategy instantiation.
+Two options are available to configure our Strategy:
+
+- Use `.env` file
+- Provide configuration into Strategy instantiation.
 
 > For this example, we'll use [`dotenv` library](https://www.npmjs.com/package/dotenv) to handle local environment
 
 
-🛠️ First one is through env file. This one is transparent because you do not have to add code, simply keep the previous step code, the Strategy will consume the environment by default.
+🛠️ The `.env` is transparent because you do not have to add code, simply keep the previous step code, the Strategy will consume the environment by default.
 
 ```javascript
 passport.use(new CryptrStrategy(
@@ -30,7 +31,7 @@ CRYPTR_TENANTS=some-tenant-domain # Your different organization domains.
 
 🛠️ Second option is to provide the configuration directly into CryptrStrategy instantiation.
 
-The configuration is an object with a `cryptrConfig` key. `opts: { test: true }` is relevant while you stay in the development/test environment and need to be removed in production mode.
+The configuration is an object with a `cryptrConfig` key. `opts: { test: true }` is relevant while you stay in the development/test environment. It needs to be removed in production mode.
 
 ```javascript
 passport.use(new CryptrStrategy(
