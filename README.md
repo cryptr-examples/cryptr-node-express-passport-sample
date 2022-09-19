@@ -1,57 +1,51 @@
 # Cryptr With Node/Express and PassportJS
 
-## 01 - Create your Node Express Project
+## 02 - Add Passport and Cryptr's Strategy
 
-🛠️ First init a NPM project:
+🛠️ First add `passport` dependency.
 
 ```bash
-mkdir your_app
-cd your_app
-
-npm init
+npm install passport
 ```
 
-🛠️ After that create the entry point file you chose in `npm init` process, here we'll use `index.js`
-
-
-🛠️ Then add express support:
-
-```bash 
-npm install express
-```
-
-🛠️ Then, create root and private paths express base code
+Then add it to your express implementation
 
 ```javascript
-//index.js
-const express = require('express')
-const app = express()
-const port = 3001 // choose your own
+// index.js
 
+//...
+import passport from 'passport'
+//...
+app.use(passport.initialize())
 
 app.get('/', (_req, res) => {
   res.send('This is root of your project')
 })
-
-app.get('/private', (_req, res) => {
-  res.send('This will be protected by Cryptr in next steps')
-})
-
-app.listen(port, () => {
-  console.log(`Express app listening on port ${port}`)
-})
+//...
 ```
 
-Then just run 
+🛠️ After that we can install Cryptr Passport and link it to passport.
 
 ```bash
-node index.js # or app.js depending on your entry point
+npm install @cryptr/passport-cryptr
 ```
 
-You should be able to access both urls
+Then you can import and link Cryptr's Strategy to Passport
 
-- http://localhost:3001
-- http://localhost:3001/private
+```javascript
+// index.js
 
+const passport = require('passport')
+const CryptrStrategy = require('@cryptr/passport-cryptr')
 
-[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/02-add-cryptr-passport)
+//...
+
+passport.use(new CryptrStrategy(
+  function(jwt, done) {
+    return done(jwt.errors, jwt, null)
+  }
+))
+app.use(passport.initialize())
+```
+
+[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/03-securing-routes)

@@ -1,7 +1,17 @@
 const express = require('express')
-const app = express()
-const port = 3001 // choose your own
+const passport = require('passport')
+const CryptrStrategy = require('@cryptr/passport-cryptr')
 
+
+const port = 3001 // choose your own
+const app = express()
+
+passport.use(new CryptrStrategy(
+  function(jwt, done) {
+    return done(jwt.errors, jwt, null)
+  }
+))
+app.use(passport.initialize())
 
 app.get('/', (_req, res) => {
   res.send('This is root of your project')
