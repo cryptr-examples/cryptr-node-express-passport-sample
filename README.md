@@ -2,7 +2,7 @@
 
 ## 01 - Create your Node Express Project
 
-🛠️ First init a NPM project:
+🛠️ First, init a NPM project:
 
 ```bash
 mkdir your_app
@@ -11,10 +11,10 @@ cd your_app
 npm init
 ```
 
-🛠️ After that create the entry point file you chose in `npm init` process, here we'll use `index.js`
+🛠️ After that, create the entry point file you chose in `npm init` process, here we'll use `index.js`
 
 
-🛠️ Then add express support:
+🛠️ Then, add express support:
 
 ```bash 
 npm install express
@@ -42,7 +42,7 @@ app.listen(port, () => {
 })
 ```
 
-Then just run 
+Then, just run :
 
 ```bash
 node index.js # or app.js depending on your entry point
