@@ -13,3 +13,9 @@ npm init
 
 🛠️ After that create the entry point file you chose in `npm init` process, here we'll use `index.js`
 
+
+🛠️ Then add express support:
+
+```bash 
+npm install express
+```
