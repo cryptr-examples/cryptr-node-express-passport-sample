@@ -50,6 +50,6 @@ passport.use(new CryptrStrategy(
 ));
 ```
 
-If you run your app, you should have both endpoint still accessible, the next step is to add security to routing.
+If you run your app, you should have both endpoints still accessible, the next step is to add security to routing.
 
 [Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/04-securing-routes)
