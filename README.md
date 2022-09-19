@@ -52,3 +52,6 @@ You should be able to access both urls
 
 - http://localhost:3001
 - http://localhost:3001/private
+
+
+[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/02-add-cryptr-passport)
