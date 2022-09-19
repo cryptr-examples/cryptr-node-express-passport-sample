@@ -1,5 +1,7 @@
 # Cryptr With Node/Express and PassportJS
 
+## 04 - Securing routes
+
 In this step, we'll add some guards to the `/private` endpoint that will require authentication.
 
 Let's use `passport.authenticate` in the `/private` routing to handle Cryptr authentication.
@@ -24,7 +26,7 @@ app.get('/private', (req, res, next) => {
 })
 ```
 
-Now if you access [http://localhost:3001/private](http://localhost:3001/private), you should have an Unauthorized response
+Now, if you access [http://localhost:3001/private](http://localhost:3001/private), you should have an Unauthorized response
 
 More about `authenticate` callback attributes:
 
@@ -36,13 +38,13 @@ More about `authenticate` callback attributes:
 
 >💡
 >
-> You can either 
+> You can either :
 >
 > test with an active front implementation that targets your Express
 > 
-> or you can use our REST API to generate different JWT samples, see our [online documentation](https://docs.cryptr.co/docs/rest-api/token-customization#get-a-jwt-sample) that allows you to test different cases depending on the parameters you sent.
+> use our REST API to generate different JWT samples, see our [online documentation](https://docs.cryptr.co/docs/rest-api/token-customization#get-a-jwt-sample) that allows you to test different cases depending on the parameters you sent.
 
-Now you can test again the route with the token as Authorization Bearer header and you should have access to the resource if the token is valid.
+Now, you can test again the route with the token as Authorization Bearer header and you should have access to the resource if the token is valid.
 
 ```bash
 curl --location --request GET 'http://localhost:3001/private' \
@@ -51,4 +53,8 @@ curl --location --request GET 'http://localhost:3001/private' \
 > Welcome to this private page jane.doe@cryptr.co!
 ```
 
-Now you are good to go to implement this in your real project and use `claims` to adjust the behavior of your endpoints
+Now, you are good to go to implement this in your real project and use `claims` to adjust the behavior of your endpoints
+
+
+Congratulations if you made it to the end!
+I hope this was helpful, and thanks for reading! :)
