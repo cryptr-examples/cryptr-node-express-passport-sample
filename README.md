@@ -1,57 +1,11 @@
 # Cryptr With Node/Express and PassportJS
 
-## 01 - Create your Node Express Project
+Here is a step-by-step guide to implement `@cryptr/passport-cryptr` into a Node Express project
 
-🛠️ First init a NPM project:
+## [01 - Create Node Express Project](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/01-create-project)
 
-```bash
-mkdir your_app
-cd your_app
+## [02 - Add Cryptr Passport](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/02-add-cryptr-passport)
 
-npm init
-```
+## [03 - Adding configuration](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/03-adding-configuration)
 
-🛠️ After that create the entry point file you chose in `npm init` process, here we'll use `index.js`
-
-
-🛠️ Then add express support:
-
-```bash 
-npm install express
-```
-
-🛠️ Then, create root and private paths express base code
-
-```javascript
-//index.js
-const express = require('express')
-const app = express()
-const port = 3001 // choose your own
-
-
-app.get('/', (_req, res) => {
-  res.send('This is root of your project')
-})
-
-app.get('/private', (_req, res) => {
-  res.send('This will be protected by Cryptr in next steps')
-})
-
-app.listen(port, () => {
-  console.log(`Express app listening on port ${port}`)
-})
-```
-
-Then just run 
-
-```bash
-node index.js # or app.js depending on your entry point
-```
-
-You should be able to access both urls
-
-- http://localhost:3001
-- http://localhost:3001/private
-
-
-[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/02-add-cryptr-passport)
+## [04 - Securing routes](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/04-securing-routes)
