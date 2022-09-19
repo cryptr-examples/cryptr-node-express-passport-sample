@@ -30,8 +30,19 @@ app.get('/', (_req, res) => {
   res.send('This is root of your project')
 })
 
-app.get('/private', (_req, res) => {
-  res.send('This will be protected by Cryptr in next steps')
+app.get('/private', (req, res, next) => {
+  passport.authenticate('cryptr', function(err, claims, info) {
+    try {
+      if (err || !claims) {
+        res.status(401).send('Unauthorized')
+      } else {
+        const { email } = claims
+        res.send(`Welcome to this private page ${email}!`)
+      }
+    } catch {
+      res.status(401).send('Unauthorized')
+    }
+  })(req, res, next)
 })
 
 app.listen(port, () => {
