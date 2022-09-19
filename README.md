@@ -48,4 +48,6 @@ passport.use(new CryptrStrategy(
 app.use(passport.initialize())
 ```
 
-[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/03-securing-routes)
+At this step, you app won't start due to missing configuration, that is the purpose of next step
+
+[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/03-adding-configuration)
