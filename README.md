@@ -2,13 +2,13 @@
 
 ## 02 - Add Passport and Cryptr's Strategy
 
-🛠️ First add `passport` dependency.
+🛠️ First, add `passport` dependency.
 
 ```bash
 npm install passport
 ```
 
-Then add it to your express implementation
+Then, add it to your express implementation
 
 ```javascript
 // index.js
@@ -24,13 +24,13 @@ app.get('/', (_req, res) => {
 //...
 ```
 
-🛠️ After that we can install Cryptr Passport and link it to passport.
+🛠️ After that, we can install Cryptr Passport and link it to passport.
 
 ```bash
 npm install @cryptr/passport-cryptr
 ```
 
-Then you can import and link Cryptr's Strategy to Passport
+Then, you can import and link Cryptr's Strategy to Passport
 
 ```javascript
 // index.js
