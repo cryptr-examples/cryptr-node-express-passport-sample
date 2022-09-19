@@ -9,7 +9,7 @@ Two options are available to configure ou Strategy:
 > For this example, we'll use [`dotenv` library](https://www.npmjs.com/package/dotenv) to handle local environment
 
 
-🛠️ First one is through env file. This one is transparent because you do not have to add code, simply keeping the previous step code, the Strategy will consume environment by defaut.
+🛠️ First one is through env file. This one is transparent because you do not have to add code, simply keep the previous step code, the Strategy will consume the environment by default.
 
 ```javascript
 passport.use(new CryptrStrategy(
@@ -30,7 +30,7 @@ CRYPTR_TENANTS=some-tenant-domain # Your different organization domains.
 
 🛠️ Second option is to provide the configuration directly into CryptrStrategy instantiation.
 
-Configuration is an object with a `cryptrConfig` key. `opts: { test: true }` is relevant while you stay in development/test environment and need to be removed in production mode.
+The configuration is an object with a `cryptrConfig` key. `opts: { test: true }` is relevant while you stay in the development/test environment and need to be removed in production mode.
 
 ```javascript
 passport.use(new CryptrStrategy(
