@@ -1,53 +1,52 @@
 # Cryptr With Node/Express and PassportJS
 
-## 02 - Add Passport and Cryptr's Strategy
+## 02 - Adding Cryptr Configuration
 
-🛠️ First add `passport` dependency.
+Two options are available to configure ou Strategy:
+- Use dot env file
+- provide configuration into Strategy instantiation.
 
-```bash
-npm install passport
-```
 
-Then add it to your express implementation
 
-```javascript
-// index.js
-
-//...
-import passport from 'passport'
-//...
-app.use(passport.initialize())
-
-app.get('/', (_req, res) => {
-  res.send('This is root of your project')
-})
-//...
-```
-
-🛠️ After that we can install Cryptr Passport and link it to passport.
-
-```bash
-npm install @cryptr/passport-cryptr
-```
-
-Then you can import and link Cryptr's Strategy to Passport
+🛠️ First one is through env file. This one is transparent because you do not have to add code, simply keeping the previous step code, the Strategy will consume environment by defaut.
 
 ```javascript
-// index.js
-
-const passport = require('passport')
-const CryptrStrategy = require('@cryptr/passport-cryptr')
-
-//...
-
 passport.use(new CryptrStrategy(
   function(jwt, done) {
     return done(jwt.errors, jwt, null)
   }
 ))
-app.use(passport.initialize())
 ```
 
-At this step, you app won't start due to missing configuration, that is the purpose of next step
+Here is an example of .env configuration:
 
-[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/03-adding-configuration)
+
+```shell
+CRYPTR_BASE_URL=https://auth.cryptr.eu # Your cryptr server URL
+CRYPTR_AUDIENCES=http://localhost:3000,http://localhost:4200 # Your different front URLs
+CRYPTR_TENANTS=some-tenant-domain # Your different organization domains.
+```
+
+🛠️ Second option is to provide the configuration directly into CryptrStrategy instantiation.
+
+Configuration is an object with a `cryptrConfig` key. `opts: { test: true }` is relevant while you stay in development/test environment and need to be removed in production mode.
+
+```javascript
+passport.use(new CryptrStrategy(
+  // instead of env file we can use {cryptrConfig},
+  {
+    cryptrConfig: {
+      base_url: process.env.CRYPTR_BASE_URL,
+      audiences: process.env.CRYPTR_AUDIENCES.split(','),
+      tenants: process.env.CRYPTR_TENANTS.split(',')
+    },
+    opts: { test: true }
+  },
+  function(jwt, done) {
+    //Here should be like ResourceOwner.findByClaims(jwt.claims)
+    return done(jwt.errors, jwt.claims, null)
+  }
+));
+```
+
+[Next](https://github.com/cryptr-examples/cryptr-node-express-passport-sample/tree/04-securing-routes)
