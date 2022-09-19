@@ -1,6 +1,6 @@
 # Cryptr With Node/Express and PassportJS
 
-## 02 - Adding Cryptr Configuration
+## 03 - Adding Cryptr Configuration
 
 Two options are available to configure our Strategy:
 
