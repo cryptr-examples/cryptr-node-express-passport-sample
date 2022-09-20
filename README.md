@@ -26,7 +26,7 @@ app.get('/private', (req, res, next) => {
 })
 ```
 
-Now, if you access [http://localhost:3001/private](http://localhost:3001/private), you should have an Unauthorized response
+Now, if you access [http://localhost:3001/private](http://localhost:3001/private), you should have an Unauthorized response.
 
 More about `authenticate` callback attributes:
 
