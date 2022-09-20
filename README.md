@@ -31,10 +31,10 @@ Now, if you access [http://localhost:3001/private](http://localhost:3001/private
 More about `authenticate` callback attributes:
 
 - `err` will display crashes that occurred in CryptrStrategy
-- `claims` will be the decode of token provided **ONLY IF VALIDATED** that you can use for your own purpose
-- `info` will only be not null if the validation failed, the object will be as:
-  - `valid` false 
-  - `errors` will display the reason for validation failure (such as expired, the audience is not allowed ...)
+- `claims` will display decoded object of token provided (**ONLY IF VALID**) that you can use for your own needs.
+- `info` will only be structured as follow if token not valid, otherwise it will be null:
+  - `valid` false.
+  - `errors` will the string reason for validation failure (such as expired, the audience is not allowed ...)
 
 >💡
 >
